@@ -7,11 +7,11 @@ import { swap } from "../../utils/helper";
 
 const MAX_TASK_PER_COLUMN = 3;
 
-const randomEnum = (anEnum: TaskColors) => {
+const randomColor = (anEnum: TaskColors) => {
   const enumValues = Object.keys(anEnum);
   const randomIndex = Math.floor(Math.random() * enumValues.length);
-  const randomEnumValue = enumValues[randomIndex];
-  return randomEnumValue;
+  const randomColorValue = enumValues[randomIndex];
+  return randomColorValue;
 };
 
 
@@ -51,7 +51,7 @@ const columnTasksSlice = createSlice({
         title: title,
         column: ColumnType.TO_DO,
         // @ts-ignore
-        color: randomEnum(TaskColors),
+        color: randomColor(TaskColors),
       };
 
       const Final = {
@@ -78,7 +78,7 @@ const columnTasksSlice = createSlice({
         title: `new ${column} task`,
         column: column,
         // @ts-ignore
-        color: randomEnum(TaskColors),
+        color: randomColor(TaskColors),
       };
 
       const Final = {
