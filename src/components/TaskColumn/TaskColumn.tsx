@@ -39,7 +39,7 @@ const TaskColumn=({ columnName }: { columnName: ColumnType })=> {
         backgroundColor: `${ColumnTaskcolor[columnName]}`,
       }}
     >
-      <Space direction="vertical" >
+      <Space direction="vertical" style={{width:"100%"}} >
         <Space className="task-column-header"  align="center" direction="vertical" >
         <Typography.Title level={2} style={{marginTop:""}}>{columnName}</Typography.Title>
         {/* <Button

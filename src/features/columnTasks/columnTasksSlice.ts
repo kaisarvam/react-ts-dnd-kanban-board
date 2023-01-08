@@ -21,6 +21,7 @@ const FirstState = {
       id: uuidv4(),
       title: "Task 1",
       column: ColumnType.TO_DO,
+      // @ts-ignore
       color: randomEnum(TaskColors),
     },
   ],
@@ -29,6 +30,7 @@ const FirstState = {
       id: uuidv4(),
       title: "Task 2",
       column: ColumnType.IN_PROGRESS,
+      // @ts-ignore
       color: randomEnum(TaskColors),
     },
   ],
@@ -37,6 +39,7 @@ const FirstState = {
       id: uuidv4(),
       title: "Task 3",
       column: ColumnType.BLOCKED,
+      // @ts-ignore
       color: randomEnum(TaskColors),
     },
   ],
@@ -45,6 +48,7 @@ const FirstState = {
       id: uuidv4(),
       title: "Task 4",
       column: ColumnType.DONE,
+      // @ts-ignore
       color: randomEnum(TaskColors),
     },
   ],
@@ -53,7 +57,7 @@ const FirstState = {
 const setToLocalStorage = (value: { [key in ColumnType]: TaskModel[] }) => {
   window.localStorage.setItem("task", JSON.stringify(value));
 };
-
+// @ts-ignore
 const PresentState = JSON.parse(window.localStorage.getItem("task") || null);
 
 const columnTasksSlice = createSlice({
@@ -75,6 +79,7 @@ const columnTasksSlice = createSlice({
         id: uuidv4(),
         title: title,
         column: ColumnType.TO_DO,
+        // @ts-ignore
         color: randomEnum(TaskColors),
       };
 
@@ -101,6 +106,7 @@ const columnTasksSlice = createSlice({
         id: uuidv4(),
         title: `new ${column} task`,
         column: column,
+        // @ts-ignore
         color: randomEnum(TaskColors),
       };
 
