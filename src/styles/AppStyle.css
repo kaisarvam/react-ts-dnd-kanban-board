@@ -3,6 +3,10 @@
 @import "./mediaQuery/md.css";
 @import "./mediaQuery/sm.css";
 
+body{
+  background-color: LightGoldenRodYellow;
+}
+
 .full-width {
   width: 100vw;
 }
