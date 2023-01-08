@@ -72,7 +72,7 @@ const columnTasksSlice = createSlice({
       const columnTasks = state[ColumnType.TO_DO];
 
       if (columnTasks.length > MAX_TASK_PER_COLUMN) {
-        console.log("Too many Task !!");
+        alert(`Too many Task !! can't  add more then ${MAX_TASK_PER_COLUMN+1} task`);
         return allTasks;
       }
       const newColumnTask: TaskModel = {
