@@ -1,29 +1,28 @@
-import { Button, Space, Typography } from "antd";
-import { useDispatch } from "react-redux";
-
+import { Space, Typography } from "antd";
 import { useAppSelector } from "../../app/hooks";
-import { addNewTask } from "../../features/columnTasks/columnTasksSlice";
 import useDropOnColumn from "../../hooks/useDropOnColumn";
 import { ColumnTaskcolor, ColumnType } from "../../utils/enums";
 import { TaskModel } from "../../utils/models";
 import TaskCard from "../TaskCard/TaskCard";
 
 const TaskColumn = ({ columnName }: { columnName: ColumnType }) => {
-  const dispatch = useDispatch();
-
   const allTasks = useAppSelector((state) => {
     return state.columntasks;
   });
 
-  //console.log("found task in state: ", allTasks[columnName]);
-
   const { dropRef, isOver } = useDropOnColumn({ columnName });
-  const ColumnTasks = allTasks[columnName].map(
-    (task: TaskModel, index: number) => {
-      return <TaskCard key={task.id} task={task} index={index} />;
-    }
-  );
-
+  let ColumnTasks;
+  if(Object.keys(allTasks).length>1){
+    // @ts-ignore
+     ColumnTasks = allTasks[columnName].map(
+      (task: TaskModel, index: number) => {
+        return <TaskCard key={task.id} task={task} index={index} />;
+      }
+    );
+  }else{
+     ColumnTasks = 'loading...'
+  }
+  
   return (
     <div
       ref={dropRef}
@@ -42,14 +41,6 @@ const TaskColumn = ({ columnName }: { columnName: ColumnType }) => {
           <Typography.Title level={2} style={{ marginTop: "" }}>
             {columnName}
           </Typography.Title>
-          {/* <Button
-        style={{marginBottom:"30px"}}
-          onClick={() => {
-            dispatch(addNewTask(columnName));
-          }}
-        >
-          Add New Task in {columnName}
-        </Button> */}
         </Space>
 
         <Space direction="vertical">{ColumnTasks}</Space>

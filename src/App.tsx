@@ -1,17 +1,20 @@
 import { FileAddOutlined } from "@ant-design/icons";
 import { Col, Row, Space, Typography, Input, Button } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useDispatch } from "react-redux";
 import TaskColumn from "./components/TaskColumn/TaskColumn";
-import { addNewTodoTask } from "./features/columnTasks/columnTasksSlice";
+import { addNewTodoTask, getAllTask} from "./features/columnTasks/columnTasksSlice";
 import { ColumnType } from "./utils/enums";
 const { TextArea } = Input;
 
 function App() {
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTask());
+  }, [dispatch]);
   return (
     <Space align="center">
       <Space align="center" direction="vertical" className="full-width">

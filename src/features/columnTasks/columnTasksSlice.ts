@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import { ColumnType, TaskColors } from "../../utils/enums";
@@ -7,62 +8,29 @@ import { swap } from "../../utils/helper";
 const MAX_TASK_PER_COLUMN = 3;
 
 const randomEnum = (anEnum: TaskColors) => {
-  console.log("inside enum function :", anEnum);
   const enumValues = Object.keys(anEnum);
   const randomIndex = Math.floor(Math.random() * enumValues.length);
   const randomEnumValue = enumValues[randomIndex];
   return randomEnumValue;
 };
 
-const FirstState = {
-  Todo: [
-    {
-      id: uuidv4(),
-      title: "Task 1",
-      column: ColumnType.TO_DO,
-      // @ts-ignore
-      color: randomEnum(TaskColors),
-    },
-  ],
-  "In Progress": [
-    {
-      id: uuidv4(),
-      title: "Task 2",
-      column: ColumnType.IN_PROGRESS,
-      // @ts-ignore
-      color: randomEnum(TaskColors),
-    },
-  ],
-  Blocked: [
-    {
-      id: uuidv4(),
-      title: "Task 3",
-      column: ColumnType.BLOCKED,
-      // @ts-ignore
-      color: randomEnum(TaskColors),
-    },
-  ],
-  Done: [
-    {
-      id: uuidv4(),
-      title: "Task 4",
-      column: ColumnType.DONE,
-      // @ts-ignore
-      color: randomEnum(TaskColors),
-    },
-  ],
-};
 
 const setToLocalStorage = (value: { [key in ColumnType]: TaskModel[] }) => {
   window.localStorage.setItem("task", JSON.stringify(value));
 };
-// @ts-ignore
-const PresentState = JSON.parse(window.localStorage.getItem("task") || null);
 
 const columnTasksSlice = createSlice({
   name: "columnTasks",
-  initialState: PresentState || FirstState,
+  initialState:{},// PresentState || FirstState,
   reducers: {
+    getAllTask:(state)=>{
+      console.log("found state :",state);
+    },getAllTaskSuccess:(state,action)=>{
+      console.log("found payload :",action.payload);
+      return{
+        ...action.payload
+      }
+    },
     addNewTodoTask: (state, action) => {
       const allTasks = current(state);
       console.log("found new todo task payload", action.payload);
@@ -226,4 +194,6 @@ export const {
   updateTheTask,
   dropTheTask,
   dropHoverHandle,
+  getAllTask,
+  getAllTaskSuccess
 } = columnTasksSlice.actions;
