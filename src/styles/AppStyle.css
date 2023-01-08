@@ -1,0 +1,34 @@
+@import "./mediaQuery/xxl.css";
+@import "./mediaQuery/xl.css";
+@import "./mediaQuery/md.css";
+@import "./mediaQuery/sm.css";
+
+.full-width {
+  width: 100vw;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.task-column {
+  min-height: 800px;
+  width: 300px;
+  border-radius:15px;
+  padding:10px;
+  border:2px solid gray;
+}
+
+.task-column-header{
+    background-color:White;
+    width:100%;
+    border-radius:10px 10px 0px 0px;
+}
+
+.task-card{
+    border-radius: 20px;
+    border: 2px solid black;
+    width:280px;
+    box-shadow:5px 2px 5px black;
+    margin-bottom: 20px;
+}
