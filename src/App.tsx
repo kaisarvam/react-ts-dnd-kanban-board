@@ -33,6 +33,10 @@ function App() {
             icon={<FileAddOutlined />}
             style={{ minHeight: "40px" }}
             onClick={() => {
+              if(!newTaskTitle){
+                alert("please enter task name before adding !!")
+                return ;
+              }
               dispatch(addNewTodoTask(newTaskTitle));
               setNewTaskTitle("");
             }}
