@@ -10,30 +10,33 @@ import { ColumnType } from "./utils/enums";
 const { TextArea } = Input;
 
 function App() {
-  
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const dispatch = useDispatch();
   return (
     <Space align="center">
       <Space align="center" direction="vertical" className="full-width">
         <Typography.Title>Task Board</Typography.Title>
-        <Space direction="horizontal" style={{marginBottom:"30px"}}>
+        <Space direction="horizontal" style={{ marginBottom: "30px" }}>
           <TextArea
             value={newTaskTitle}
             autoSize={true}
-            style={{minHeight:"40px"}}
+            style={{ minHeight: "40px" }}
             placeholder="Write your task ..."
             onChange={(e) => {
               setNewTaskTitle(e.target.value);
             }}
           ></TextArea>
           <Button
-          icon={<FileAddOutlined />}
-          style={{minHeight:"40px"}}
-          onClick={()=>{
-            dispatch(addNewTodoTask(newTaskTitle));
-            setNewTaskTitle('');
-          }}  type="primary">Add New Task </Button>
+            icon={<FileAddOutlined />}
+            style={{ minHeight: "40px" }}
+            onClick={() => {
+              dispatch(addNewTodoTask(newTaskTitle));
+              setNewTaskTitle("");
+            }}
+            type="primary"
+          >
+            Add New Task{" "}
+          </Button>
         </Space>
 
         <DndProvider backend={HTML5Backend}>

@@ -8,14 +8,12 @@ import { TaskModel, DragItem } from "./../utils/models";
 type useDragAndDropTaskProps = {
   index: number;
   task: TaskModel;
- 
 };
 
 const useDragAndDropTask = <T extends HTMLElement>({
   index,
   task,
 }: useDragAndDropTaskProps) => {
-
   const dispatch = useDispatch();
   const ref = useRef<T>(null);
   const [{ isDragging }, drag] = useDrag<
@@ -73,13 +71,12 @@ const useDragAndDropTask = <T extends HTMLElement>({
         return;
       }
 
-     
-      const dropOverHandleProp ={
-        column:task.column,
-        i:draggedItemIndex,
-        j:hoveredItemIndex
-      }
-      dispatch(dropHoverHandle(dropOverHandleProp))
+      const dropOverHandleProp = {
+        column: task.column,
+        i: draggedItemIndex,
+        j: hoveredItemIndex,
+      };
+      dispatch(dropHoverHandle(dropOverHandleProp));
       item.index = hoveredItemIndex;
     },
   });

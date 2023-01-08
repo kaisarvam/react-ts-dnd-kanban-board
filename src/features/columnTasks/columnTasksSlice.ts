@@ -14,7 +14,6 @@ const randomEnum = (anEnum: TaskColors) => {
   return randomEnumValue;
 };
 
-
 const FirstState = {
   Todo: [
     {
@@ -66,13 +65,17 @@ const columnTasksSlice = createSlice({
   reducers: {
     addNewTodoTask: (state, action) => {
       const allTasks = current(state);
-      console.log("found new todo task payload",action.payload);
+      console.log("found new todo task payload", action.payload);
       const title = action.payload;
 
       const columnTasks = state[ColumnType.TO_DO];
 
       if (columnTasks.length > MAX_TASK_PER_COLUMN) {
-        alert(`Too many Task !! can't  add more then ${MAX_TASK_PER_COLUMN+1} task`);
+        alert(
+          `Too many Task !! can't  add more then ${
+            MAX_TASK_PER_COLUMN + 1
+          } task`
+        );
         return allTasks;
       }
       const newColumnTask: TaskModel = {

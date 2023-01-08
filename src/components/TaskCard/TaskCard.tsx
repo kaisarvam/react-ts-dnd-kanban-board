@@ -39,13 +39,9 @@ function TaskCard({ index, task }: TaskCardProps) {
       style={{
         opacity: `${isDragging ? 0.2 : 1}`,
         backgroundColor: `${task.color}`,
-        
       }}
     >
-      <Space
-        direction="vertical"
-        style={{  padding: "30px" }}
-      >
+      <Space direction="vertical" style={{ padding: "30px" }}>
         <TextArea
           style={{ minHeight: "50px", marginBottom: "15px" }}
           value={task.title}

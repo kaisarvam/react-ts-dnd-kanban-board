@@ -8,9 +8,7 @@ import { ColumnTaskcolor, ColumnType } from "../../utils/enums";
 import { TaskModel } from "../../utils/models";
 import TaskCard from "../TaskCard/TaskCard";
 
-
-const TaskColumn=({ columnName }: { columnName: ColumnType })=> {
- 
+const TaskColumn = ({ columnName }: { columnName: ColumnType }) => {
   const dispatch = useDispatch();
 
   const allTasks = useAppSelector((state) => {
@@ -20,29 +18,31 @@ const TaskColumn=({ columnName }: { columnName: ColumnType })=> {
   //console.log("found task in state: ", allTasks[columnName]);
 
   const { dropRef, isOver } = useDropOnColumn({ columnName });
-  const ColumnTasks = allTasks[columnName].map((task:TaskModel, index:number) => {
-    return (
-      <TaskCard
-        key={task.id}
-        task={task}
-        index={index}
-      />
-    );
-  });
+  const ColumnTasks = allTasks[columnName].map(
+    (task: TaskModel, index: number) => {
+      return <TaskCard key={task.id} task={task} index={index} />;
+    }
+  );
 
   return (
     <div
       ref={dropRef}
       className="text-center task-column"
       style={{
-        opacity: `${isOver ? 0.7 : 1}`,   
+        opacity: `${isOver ? 0.7 : 1}`,
         backgroundColor: `${ColumnTaskcolor[columnName]}`,
       }}
     >
-      <Space direction="vertical" style={{width:"100%"}} >
-        <Space className="task-column-header"  align="center" direction="vertical" >
-        <Typography.Title level={2} style={{marginTop:""}}>{columnName}</Typography.Title>
-        {/* <Button
+      <Space direction="vertical" style={{ width: "100%" }}>
+        <Space
+          className="task-column-header"
+          align="center"
+          direction="vertical"
+        >
+          <Typography.Title level={2} style={{ marginTop: "" }}>
+            {columnName}
+          </Typography.Title>
+          {/* <Button
         style={{marginBottom:"30px"}}
           onClick={() => {
             dispatch(addNewTask(columnName));
@@ -50,14 +50,12 @@ const TaskColumn=({ columnName }: { columnName: ColumnType })=> {
         >
           Add New Task in {columnName}
         </Button> */}
-
         </Space>
 
-       
         <Space direction="vertical">{ColumnTasks}</Space>
       </Space>
     </div>
   );
-}
+};
 
 export default TaskColumn;
