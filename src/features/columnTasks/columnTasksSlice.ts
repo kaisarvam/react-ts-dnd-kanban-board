@@ -14,22 +14,22 @@ const randomColor = (anEnum: TaskColors) => {
   return randomColorValue;
 };
 
-
 const setToLocalStorage = (value: { [key in ColumnType]: TaskModel[] }) => {
   window.localStorage.setItem("task", JSON.stringify(value));
 };
 
 const columnTasksSlice = createSlice({
   name: "columnTasks",
-  initialState:{},// PresentState || FirstState,
+  initialState: {}, // PresentState || FirstState,
   reducers: {
-    getAllTask:(state)=>{
-      console.log("found state :",state);
-    },getAllTaskSuccess:(state,action)=>{
-      console.log("found payload :",action.payload);
-      return{
-        ...action.payload
-      }
+    getAllTask: (state) => {
+      console.log("found state :", state);
+    },
+    getAllTaskSuccess: (state, action) => {
+      console.log("found payload :", action.payload);
+      return {
+        ...action.payload,
+      };
     },
     addNewTodoTask: (state, action) => {
       const allTasks = current(state);
@@ -195,5 +195,5 @@ export const {
   dropTheTask,
   dropHoverHandle,
   getAllTask,
-  getAllTaskSuccess
+  getAllTaskSuccess,
 } = columnTasksSlice.actions;

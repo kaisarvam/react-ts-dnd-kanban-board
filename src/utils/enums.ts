@@ -12,34 +12,30 @@ export enum ColumnTaskcolor {
   "Done" = "LightSeaGreen",
 }
 
-export enum ItemType{
-  Task = 'Task',
+export enum ItemType {
+  Task = "Task",
 }
 
-
-export enum  TaskColors {
-  "AliceBlue"="AliceBlue",
-  "AntiqueWhite"="AntiqueWhite",
-  "Aqua"="Aqua",
-  "Aquamarine"="Aquamarine",
-  "Azure"="Azure",
-  "Beige"="Beige",
-  "Bisque"="Bisque",
-  "BlanchedAlmond"="BlanchedAlmond",
-  "BurlyWood"="BurlyWood",
-  "CadetBlue"="CadetBlue",
-  "Chartreuse"="Chartreuse",
-  "Coral"="Coral",
-  "CornflowerBlue"="CornflowerBlue",
-  "Cornsilk"="Cornsilk",
-  "Cyan"="Cyan",
-  "DarkCyan"="DarkCyan",
-  "DarkKhaki"="DarkKhaki",
-  "DarkSalmon"="DarkSalmon",
-  "DarkSeaGreen"="DarkSeaGreen",
-  "DarkTurquoise"="DarkTurquoise",
-  "Gold"="Gold"
-
-
-
+export enum TaskColors {
+  "AliceBlue" = "AliceBlue",
+  "AntiqueWhite" = "AntiqueWhite",
+  "Aqua" = "Aqua",
+  "Aquamarine" = "Aquamarine",
+  "Azure" = "Azure",
+  "Beige" = "Beige",
+  "Bisque" = "Bisque",
+  "BlanchedAlmond" = "BlanchedAlmond",
+  "BurlyWood" = "BurlyWood",
+  "CadetBlue" = "CadetBlue",
+  "Chartreuse" = "Chartreuse",
+  "Coral" = "Coral",
+  "CornflowerBlue" = "CornflowerBlue",
+  "Cornsilk" = "Cornsilk",
+  "Cyan" = "Cyan",
+  "DarkCyan" = "DarkCyan",
+  "DarkKhaki" = "DarkKhaki",
+  "DarkSalmon" = "DarkSalmon",
+  "DarkSeaGreen" = "DarkSeaGreen",
+  "DarkTurquoise" = "DarkTurquoise",
+  "Gold" = "Gold",
 }

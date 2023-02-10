@@ -12,17 +12,15 @@ const TaskColumn = ({ columnName }: { columnName: ColumnType }) => {
 
   const { dropRef, isOver } = useDropOnColumn({ columnName });
   let ColumnTasks;
-  if(Object.keys(allTasks).length>1){
+  if (Object.keys(allTasks).length > 1) {
     // @ts-ignore
-     ColumnTasks = allTasks[columnName].map(
-      (task: TaskModel, index: number) => {
-        return <TaskCard key={task.id} task={task} index={index} />;
-      }
-    );
-  }else{
-     ColumnTasks = 'loading...'
+    ColumnTasks = allTasks[columnName].map((task: TaskModel, index: number) => {
+      return <TaskCard key={task.id} task={task} index={index} />;
+    });
+  } else {
+    ColumnTasks = "loading...";
   }
-  
+
   return (
     <div
       ref={dropRef}
